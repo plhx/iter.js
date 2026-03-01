@@ -1354,4 +1354,28 @@
         }
         return result
     }
+
+    /**
+     * @template T
+     * @returns {ArrayIterator<T>}
+     */
+    Array.prototype.values = function () {
+        return new ArrayIterator(this)
+    }
+
+    /**
+     * @template T
+     * @returns {ArrayIterator<T>}
+     */
+    Set.prototype.values = function () {
+        return new ArrayIterator([...this])
+    }
+
+    /**
+     * @template T
+     * @returns {ArrayIterator<T>}
+     */
+    Map.prototype.entries = function () {
+        return new ArrayIterator([...this])
+    }
 })(window)
